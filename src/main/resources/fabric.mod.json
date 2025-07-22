@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "minecraft_chatbot",
+	"version": "${version}",
+	"name": "minecraft_chatbot",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/minecraft_chatbot/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.zhengzhengyiyimc.Minecraft_chatbot"
+		],
+		"client": [
+			"com.zhengzhengyiyimc.Minecraft_chatbotClient"
+		]
+	},
+	"mixins": [
+		"minecraft_chatbot.mixins.json",
+		{
+			"config": "minecraft_chatbot.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
