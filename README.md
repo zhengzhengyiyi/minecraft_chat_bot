@@ -1,5 +1,8 @@
 # Minecraft AI Chat Assistant Mod
 
+the ai is sometimes stubid and not easy to understand what you mean.\
+I am trying to make it better.
+
 ## 🌟 Key Features
 - Chat with AI directly in Minecraft game
 - Specialized Minecraft knowledge base
@@ -23,7 +26,12 @@
 ```
 
 ## 📌 Important Notes
-• Stable internet connection required (for first-time use)
-• Recommend allocating at least 4GB RAM to Minecraft
-• Complex questions may take 10-30 seconds to respond
-• Type "clear" to reset conversation history
+- Stable internet connection required (for first-time use)
+- Recommend allocating at least 4GB RAM to Minecraft
+- Complex questions may take 10-30 seconds to respond
+- Type "clear" to reset conversation history
+
+## planning updates
+- make it works with other Minecraft versions and other mod loaders
+- make ai easier to chat with people
+- make ai can generate command in Minecraft
