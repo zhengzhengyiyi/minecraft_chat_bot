@@ -18,6 +18,12 @@ public class PythonHandler {
                     .resolve("mods/minecraft_chatbot/scripts/" + scriptName);
                     // .resolve("resources/assets/minecraft_chatbot/scripts/" + scriptName);
 
+                if (!PythonScriptManager.checkScriptExists(scriptPath)) {
+                    PythonScriptManager.ensurePythonScriptExists(scriptPath);
+
+                    future.complete(null);
+                }
+                
                 process = new ProcessBuilder("python", scriptPath.toString(), 
                     "--version", version, "--prompt", prompt)
                     .redirectErrorStream(true)
@@ -31,7 +37,7 @@ public class PythonHandler {
                             .start();
                         pipInstall.waitFor();
                     } catch (Exception e) {
-                        System.err.println("error at install dependency" + e.getMessage());
+                        System.err.println("error at install dependency \"ollama\": " + e.getMessage());
                     }
                 }).start();
 

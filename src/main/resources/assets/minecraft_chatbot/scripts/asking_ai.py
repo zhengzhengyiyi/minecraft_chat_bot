@@ -2,20 +2,6 @@ import ollama
 from argparse import ArgumentParser
 
 def ask_ollama(prompt):
-    # response = requests.post(
-    #     "http://localhost:11434/api/chat",
-    #     json={
-    #         "model": "tinyllama",
-    #         "messages": [{
-    #             "role": "system",
-    #             "content": "You are an AI which needs to help player, your name is mistral, do not care that much if player call your name wrong. Be nice to the player, do not make the player get angrey"
-    #         }, {
-    #             "role": "user",
-    #             "content": prompt
-    #         }],
-    #         "formate": "json"
-    #     }
-    # )
     response = ollama.chat(
         # model="phi3",
         model="tinyllama",

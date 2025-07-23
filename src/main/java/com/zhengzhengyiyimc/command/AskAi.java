@@ -24,7 +24,7 @@ public class AskAi {
 
                                 CompletableFuture.runAsync(() -> {
                                     String ai_message = PythonHandler.runPythonAiScript("asking_ai.py", version, prompt);
-                                    context.getSource().sendMessage(Text.of(ai_message));
+                                    context.getSource().sendMessage(Text.of(ai_message == null ? "generated the python file, please run the same command again later (about 1 minutes)" : ai_message));
                                 });
                                 
                                 return 1;

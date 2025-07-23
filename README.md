@@ -1,7 +1,8 @@
 # Minecraft AI Chat Assistant Mod
 
 the ai is sometimes stubid and not easy to understand what you mean.\
-I am trying to make it better.
+I am trying to make it better.\
+AI do not have memery yet.
 
 ## 🌟 Key Features
 - Chat with AI directly in Minecraft game
@@ -10,11 +11,16 @@ I am trying to make it better.
 - Automatic conversation context memory
 
 ## 🚀 Quick Start
+0. install ollama into your computer (https://ollama.com/download), use ```ollama run tinyllamm``` to install the ai model
 1. Place the mod file in /mods folder
 2. Launch Minecraft
 3. Type command in chat:
    /ask_ai <your question>
 4. Wait for AI response (first-time use requires 2-3 mins model loading)
+
+## Q&A
+- Q: There is some python running exception
+- A: Try to delete the python script, and the program will regenerate
 
 ## 💬 Usage Examples
 ```
