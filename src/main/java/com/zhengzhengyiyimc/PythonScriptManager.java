@@ -14,17 +14,18 @@ from argparse import ArgumentParser
 
 def ask_ollama(prompt):
     response = ollama.chat(
-        model="tinyllama",
+        model="qwen3:1.7b",
         # format="json",
         messages=[
             {"role": "system", "content": f"You are an AI assisstant in Minecraft {version} by using a Minecraft JAVA mod, your name is ollama. Please answer it detaily. Try to get the point of the question, using simple language, and make your answer short. Do not talk about Minecraft download, and only talk about Minecraft."},
             {"role": "user", "content": prompt}
         ],
+        think=False
     )
     return response["message"]["content"]
 
 if __name__ == '__main__':
-    parser = ArgumentParser("Run pretrained models on MineRL environment")
+    parser = ArgumentParser("arg")
 
     parser.add_argument("--version", type=str, required=True, help="pass into the Minecraft version")
     parser.add_argument("--prompt", type=str, required=True, help="the thing that need to ask to ai")
@@ -34,7 +35,7 @@ if __name__ == '__main__':
     version = args.version
     prompt = args.prompt
 
-    print(ask_ollama(prompt), flush=True)
+    print(ask_ollama(prompt))
 """;
 
     public static void ensurePythonScriptExists(Path scriptPath) throws IOException {

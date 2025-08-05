@@ -2,7 +2,9 @@
 
 the ai is sometimes stubid and not easy to understand what you mean.\
 I am trying to make it better.\
-AI do not have memery yet.
+AI do not have memery yet.\
+
+project uploaded on modrinth [modrinth]("https://modrinth.com/mod/ai-chat-mod")
 
 ## 🌟 Key Features
 - Chat with AI directly in Minecraft game
