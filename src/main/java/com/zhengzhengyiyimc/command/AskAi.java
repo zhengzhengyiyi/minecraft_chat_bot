@@ -1,13 +1,18 @@
 package com.zhengzhengyiyimc.command;
 
+import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.zhengzhengyiyimc.PythonHandler;
+
+import io.github.ollama4j.exceptions.OllamaBaseException;
+import io.github.ollama4j.models.response.OllamaResult;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.Text;
+
+import com.zhengzhengyiyimc.Generate;
 
 public class AskAi {
     public static void register() {
@@ -22,9 +27,21 @@ public class AskAi {
 
                                 context.getSource().sendFeedback(() -> Text.of("loading ai message, Minecraft version: " + version + " sent message: " + prompt), true);
 
-                                CompletableFuture.runAsync(() -> {
-                                    String ai_message = PythonHandler.runPythonAiScript("asking_ai.py", version, prompt);
-                                    context.getSource().sendMessage(Text.of(ai_message == null ? "generated the python file, please run the same command again later (about 1 minutes)" : ai_message));
+                                CompletableFuture.supplyAsync(() -> {
+                                    try {
+                                        return Generate.generate(prompt);
+                                    } catch (OllamaBaseException | IOException | InterruptedException e) {
+                                        e.printStackTrace();
+                                        return null;
+                                    }
+                                }).thenAccept(result -> {
+                                    context.getSource().getServer().execute(() -> {
+                                        if (result != null) {
+                                            context.getSource().sendFeedback(() -> Text.of(result.getResponse()), true);
+                                        } else {
+                                            context.getSource().sendError(Text.of("faild to use ai"));
+                                        }
+                                    });
                                 });
                                 
                                 return 1;

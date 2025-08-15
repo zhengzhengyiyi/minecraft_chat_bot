@@ -38,9 +38,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	implementation 'org.java-websocket:Java-WebSocket:1.5.3'
 	
+	implementation 'io.github.ollama4j:ollama4j:1.0.100'
 }
 
 processResources {
