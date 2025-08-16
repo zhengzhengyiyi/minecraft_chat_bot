@@ -6,7 +6,6 @@ import java.util.concurrent.CompletableFuture;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 import io.github.ollama4j.exceptions.OllamaBaseException;
-import io.github.ollama4j.models.response.OllamaResult;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
